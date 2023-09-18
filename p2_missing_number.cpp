@@ -4,25 +4,17 @@ using namespace std;
 
 int main(){
 
-    int n;
+    long long n, sum = 0;
     cin>>n;
 
-    vector<int> arr(n,0);
-
-    //to run loop n-1 times and mark value at those index as 1;
-    for(int i=0 ; i<n-1 ; i++){
+    for(int i = 0 ; i < n-1 ; i++){
         int temp;
         cin>>temp;
-        arr[temp] = 1;
+        sum = sum + temp;
     }
-
-    //to find which index still has value = 0;
-    for(int i=1 ; i<=n ; i++){
-        if(arr[i] == 0){
-            cout<<i;
-            break;
-        }
-    }
+    //idea is that the missing number 
+    //will be the sum of given terms - sum of terms appearing in line 2 
+    cout<<(n*(n+1))/2 - sum;
 
     return 0;
 }
